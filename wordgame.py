@@ -29,7 +29,14 @@ class Game:
         print("Welcome to Word Guess! You have " + str(self.guesses)  + " turns to guess the word")
 
         while self.guesses > 0:
+
             guess = input("Please enter your first guess:")
+
+            while guess not in words:
+                guess = input("That word is not in the list, please try again ")
+            
+            guess = guess.lower()
+
             if (self.handleGuess(guess)) == True:
                 break
             else:
