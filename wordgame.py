@@ -22,8 +22,24 @@ class Game:
             print("You got it! Amazing")
             return True
         else:
+            self.giveUserHint(guess, self.word.word)
             print("Wrong guess! Try again: ")
             return False
+    
+    def giveUserHint(self, guess, word):
+
+        hint = [0]*len(word)
+
+        for i in range(len(word)):
+
+            if guess[i] == word[i]:
+                hint[i] = "1"
+            elif guess[i] in word:
+                hint[i] = "0"
+            else: 
+                hint[i] = "-"
+        
+        print(hint)
     
     def play(self):
         print("Welcome to Word Guess! You have " + str(self.guesses)  + " turns to guess the word")
